@@ -31,22 +31,31 @@ export default {
 },
 data() {
     return {
-        ciao : '',
       textSearch: '',
       cards: null,
       queryApiDeck: 'https://api.themoviedb.org/3/search/movie',
+      randomFilms: 'https://api.themoviedb.org/3/discover/movie?api_key=ccaa991275d1b8e7a1d986fa743c9cf2&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate'
     };
   },
+  
    methods: {
        searchFilms(text) {
-         this.textSearch = text;
-        console.log(this.textSearch)
-        this.CallAxios()
+           if(text == '') {
+               axios.get('https://api.themoviedb.org/3/discover/movie?api_key=ccaa991275d1b8e7a1d986fa743c9cf2&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate')
+            .then(results => {
+              this.cards = results.data.results;
+            })
+           } else if (text != ''){
+                this.textSearch = text;
+                console.log(this.textSearch)
+                this.CallAxios()
+           }
+         
     },
   
     CallAxios () {
-      axios.get(this.queryApiDeck, {
-          params: {
+            axios.get(this.queryApiDeck, {
+            params: {
               api_key: 'ccaa991275d1b8e7a1d986fa743c9cf2',
               query: this.textSearch
           }
@@ -58,6 +67,7 @@ data() {
         .catch((error) => {
           console.log(error);
         });
+        
     }
    }
 
