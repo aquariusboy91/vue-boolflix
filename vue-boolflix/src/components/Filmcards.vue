@@ -2,10 +2,11 @@
     <div class="container">
         <img
             class="rounded-circle shadow mb-3"
-            :src="image"
-            :alt="title"
         >
         <h2>{{title}}</h2>
+        <h3>{{originaltitle}}</h3>
+        <span>{{lingua}}</span>
+        <span>{{voto}}</span>
     </div>
 </template>
 
@@ -13,8 +14,10 @@
 export default {
     name: 'Filmcards',
     props: [
-    'image',
     'title',
+    'originaltitle',
+    'lingua',
+    'voto'
   ],
 
 }

@@ -11,8 +11,10 @@
         <Filmcards
         v-for="(card, index) in cards"
         :key="index"
-        :image="disc.poster"
-        :title="disc.title"
+        :title="card.title"
+        :originaltitle="card.original_title"
+        :lingua="card.original_language"
+        :voto="card.vote_count"
       />
   </div>
 </template>
@@ -32,13 +34,13 @@ data() {
       textSearch: '',
       cards: null,
       queryApiDeck: 'https://api.themoviedb.org/3/search/movie?api_key=ccaa991275d1b8e7a1d986fa743c9cf2&query=batman',
-      queryApi: '',
     };
   },
   created () {
       axios.get(this.queryApiDeck)
         .then(results => {
           console.log(results);
+          this.cards = results.data.results
         })
         .catch((error) => {
           console.log(error);
