@@ -3,9 +3,9 @@
 
        <div class="row">
 
-          <!-- <Search
-            @doSearch="searchCharacters($event)"
-          /> -->
+          <Search
+            @doSearch="searchFilms($event)"
+          />
         </div>
 
         <Filmcards
@@ -22,22 +22,29 @@
 <script>
 import axios from 'axios';
 import Filmcards from './Filmcards.vue';
-// import Search from './Search.vue';
+import Search from './Search.vue';
 export default {
     name: 'Main',
     components: {
     Filmcards,
-    // Search,
+    Search,
 },
 data() {
     return {
       textSearch: '',
       cards: null,
-      queryApiDeck: 'https://api.themoviedb.org/3/search/movie?api_key=ccaa991275d1b8e7a1d986fa743c9cf2&query=batman',
+      queryApiDeck: 'https://api.themoviedb.org/3/search/movie?api_key=ccaa991275d1b8e7a1d986fa743c9cf2&query=',
     };
   },
+   methods: {
+       searchFilms(text) {
+         this.textSearch = text;
+        console.log(this.textSearch)
+        return this.textSearch
+    },
+  },
   created () {
-      axios.get(this.queryApiDeck)
+      axios.get(this.queryApiDeck + this.textSearch)
         .then(results => {
           console.log(results);
           this.cards = results.data.results
@@ -45,7 +52,7 @@ data() {
         .catch((error) => {
           console.log(error);
         });
-  }
+  },
 }
 </script>
 
