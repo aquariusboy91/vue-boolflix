@@ -1,13 +1,16 @@
 <template>
-  
+  <div class="container">
+      Boolflix
+  </div>
 </template>
 
 <script>
 export default {
+    name: 'Header',
+};
 
-}
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 </style>
