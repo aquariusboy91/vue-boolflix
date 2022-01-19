@@ -31,21 +31,23 @@ export default {
 },
 data() {
     return {
+        ciao : '',
       textSearch: '',
       cards: null,
-      queryApiDeck: 'https://api.themoviedb.org/3/search/movie?api_key=ccaa991275d1b8e7a1d986fa743c9cf2',
+      queryApiDeck: 'https://api.themoviedb.org/3/search/movie',
     };
   },
    methods: {
        searchFilms(text) {
          this.textSearch = text;
         console.log(this.textSearch)
-        return this.textSearch
+        this.CallAxios()
     },
-  },
-  created () {
+  
+    CallAxios () {
       axios.get(this.queryApiDeck, {
           params: {
+              api_key: 'ccaa991275d1b8e7a1d986fa743c9cf2',
               query: this.textSearch
           }
       })
@@ -56,8 +58,12 @@ data() {
         .catch((error) => {
           console.log(error);
         });
-  },
-}
+    }
+   }
+
+    }
+  
+
 </script>
 
 <style>
