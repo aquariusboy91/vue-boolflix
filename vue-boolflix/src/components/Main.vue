@@ -33,7 +33,7 @@ data() {
     return {
       textSearch: '',
       cards: null,
-      queryApiDeck: 'https://api.themoviedb.org/3/search/movie?api_key=ccaa991275d1b8e7a1d986fa743c9cf2&query=',
+      queryApiDeck: 'https://api.themoviedb.org/3/search/movie?api_key=ccaa991275d1b8e7a1d986fa743c9cf2',
     };
   },
    methods: {
@@ -44,7 +44,11 @@ data() {
     },
   },
   created () {
-      axios.get(this.queryApiDeck + this.textSearch)
+      axios.get(this.queryApiDeck, {
+          params: {
+              query: this.textSearch
+          }
+      })
         .then(results => {
           console.log(results);
           this.cards = results.data.results
