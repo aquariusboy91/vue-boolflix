@@ -22,7 +22,8 @@
         :voto="cardtv.vote_average"
         :nometv="cardtv.name"
         :nometvoriginale="cardtv.original_name"
-        :img="cardtv.poster_path"/>
+        :img="cardtv.poster_path"
+        />
          </div>
   </div>
 </template>
