@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <Header/>
+    <Header
+      @doSearch="searchFilms($event)"/>
     <Main/>
   </div>
 </template>

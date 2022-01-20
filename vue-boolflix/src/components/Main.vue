@@ -3,10 +3,10 @@
 
        <div class="row">
 
-          <Search
+          <!-- <Search
             @doSearch="searchFilms($event)"
           />
-        </div>
+        </div> -->
 
         <Filmcards
         v-for="(card, index) in cards"
@@ -14,7 +14,7 @@
         :title="card.title"
         :originaltitle="card.original_title"
         :lingua="card.original_language"
-        :voto="card.vote_count"
+        :voto="card.vote_average"
       />
   </div>
 </template>
@@ -22,12 +22,10 @@
 <script>
 import axios from 'axios';
 import Filmcards from './Filmcards.vue';
-import Search from './Search.vue';
 export default {
     name: 'Main',
     components: {
     Filmcards,
-    Search,
 },
 data() {
     return {
@@ -50,9 +48,7 @@ data() {
                 console.log(this.textSearch)
                 this.CallAxios()
            }
-         
     },
-  
     CallAxios () {
             axios.get(this.queryApiDeck, {
             params: {
