@@ -15,6 +15,8 @@
         :originaltitle="card.original_title"
         :lingua="card.original_language"
         :voto="card.vote_average"
+        :nometv="card.name"
+        :nometvoriginale="card.originale_name"
       />
   </div>
   </div>

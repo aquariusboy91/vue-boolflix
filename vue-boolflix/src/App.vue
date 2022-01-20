@@ -23,7 +23,8 @@ export default {
       textSearch: '',
       cards: [],
       queryApiDeck: 'https://api.themoviedb.org/3/search/movie',
-      randomFilms: 'https://api.themoviedb.org/3/discover/movie?api_key=ccaa991275d1b8e7a1d986fa743c9cf2&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate'
+      randomFilms: 'https://api.themoviedb.org/3/discover/movie?api_key=ccaa991275d1b8e7a1d986fa743c9cf2&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate',
+      queryApiDeckTv: 'https://api.themoviedb.org/3/search/tv?api_key=ccaa991275d1b8e7a1d986fa743c9cf2&language=it_IT'
     };
   },
   
@@ -38,6 +39,7 @@ export default {
                 this.textSearch = text;
                 console.log(this.textSearch)
                 this.CallAxios()
+                this.CallAxiosTv()
            }
     },
     CallAxios () {
@@ -55,6 +57,20 @@ export default {
           console.log(error);
         });
         
+    },
+    CallAxiosTv () {
+      axios.get(this.queryApiDeckTv, {
+        params: {
+          query: this.textSearch
+        }
+      })
+      .then(results => {
+        console.log(results);
+        this.cards = results.data.results
+      })
+      .catch((error) => {
+          console.log(error);
+        });
     }
    }
 };

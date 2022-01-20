@@ -3,8 +3,8 @@
         <img
             class="rounded-circle shadow mb-3"
         >
-        <h2>{{title}}</h2>
-        <h3>{{originaltitle}}</h3>
+        <h2>{{title}} {{nometv}}</h2>
+        <h3>{{originaltitle}} {{nometvoriginale}}</h3>
         <span>{{lingua}}</span>
         <span>{{voto}}</span>
     </div>
@@ -17,7 +17,10 @@ export default {
     'title',
     'originaltitle',
     'lingua',
-    'voto'
+    'voto',
+    'nometv',
+    'nometvoriginale'
+
   ],
 
 }
