@@ -2,7 +2,7 @@
   <div class="container">
       Boolflix
       <Search
-            @doSearch="$emit(searchFilms($event))"
+            @doSearch="$emit('searchCall', ($event))"
           />
         
   </div>
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Search from './components/Search.vue';
+import Search from './Search.vue';
 export default {
     name: 'Header',
     components: {
