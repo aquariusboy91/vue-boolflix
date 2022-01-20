@@ -3,11 +3,6 @@
 
        <div class="row">
 
-          <!-- <Search
-            @doSearch="searchFilms($event)"
-          />
-        </div> -->
-
         <Filmcards
         v-for="(card, index) in cards"
         :key="index"
@@ -17,7 +12,9 @@
         :voto="card.vote_average"
         :nometv="card.name"
         :nometvoriginale="card.original_name"
+        :img="card.poster_path"
       />
+
       <TvSeriescards 
         v-for="(cardtv, index) in tvcards"
         :key=" 'TV' + index"
@@ -50,6 +47,12 @@ export default {
     Filmcards,
     TvSeriescards
 },
+  data() {
+    return {
+      apimg : 'https://image.tmdb.org/t/p/'
+    }
+   
+  }
 
     }
   
