@@ -18,13 +18,21 @@
         :nometv="card.name"
         :nometvoriginale="card.original_name"
       />
-  </div>
+      <TvSeriescards 
+        v-for="(cardtv, index) in tvcards"
+        :key="index"
+        :lingua ="cardtv.original_language"
+        :voto="cardtv.vote_average"
+        :nometv="cardtv.name"
+        :nometvoriginale="cardtv.original_name"/>
+         </div>
   </div>
 </template>
 
 <script>
 // import axios from 'axios';
 import Filmcards from './Filmcards.vue';
+import TvSeriescards from './TvSeriescards.vue';
 export default {
     name: 'Main',
     props:{
@@ -33,50 +41,15 @@ export default {
         // default () {
         //         return [];
         //     },
+      },
+      tvcards: {
+
       }
     },
     components: {
     Filmcards,
+    TvSeriescards
 },
-// data() {
-//     return {
-//       textSearch: '',
-//       cards: null,
-//       queryApiDeck: 'https://api.themoviedb.org/3/search/movie',
-//       randomFilms: 'https://api.themoviedb.org/3/discover/movie?api_key=ccaa991275d1b8e7a1d986fa743c9cf2&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate'
-//     };
-//   },
-  
-//    methods: {
-//        searchFilms(text) {
-//            if(text == '') {
-//                axios.get('https://api.themoviedb.org/3/discover/movie?api_key=ccaa991275d1b8e7a1d986fa743c9cf2&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate')
-//             .then(results => {
-//               this.cards = results.data.results;
-//             })
-//            } else if (text != ''){
-//                 this.textSearch = text;
-//                 console.log(this.textSearch)
-//                 this.CallAxios()
-//            }
-//     },
-//     CallAxios () {
-//             axios.get(this.queryApiDeck, {
-//             params: {
-//               api_key: 'ccaa991275d1b8e7a1d986fa743c9cf2',
-//               query: this.textSearch
-//           }
-//       })
-//         .then(results => {
-//           console.log(results);
-//           this.cards = results.data.results
-//         })
-//         .catch((error) => {
-//           console.log(error);
-//         });
-        
-//     }
-//    }
 
     }
   

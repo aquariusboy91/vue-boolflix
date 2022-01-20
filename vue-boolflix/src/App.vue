@@ -3,7 +3,8 @@
     <Header
       @searchCall="searchFilms($event)"/>
     <Main 
-      :cards="cards"/>
+      :cards="cards"
+      :tvcards="tvcards"/>
   </div>
 </template>
 
@@ -21,7 +22,8 @@ export default {
   data() {
     return {
       textSearch: '',
-      cards: [],
+      cards: null,
+      tvcards:null,
       queryApiDeck: 'https://api.themoviedb.org/3/search/movie',
       randomFilms: 'https://api.themoviedb.org/3/discover/movie?api_key=ccaa991275d1b8e7a1d986fa743c9cf2&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate',
       queryApiDeckTv: 'https://api.themoviedb.org/3/search/tv?api_key=ccaa991275d1b8e7a1d986fa743c9cf2&language=it_IT'
@@ -39,7 +41,6 @@ export default {
                 this.textSearch = text;
                 console.log(this.textSearch)
                 this.CallAxios()
-                this.CallAxiosTv()
            }
     },
     CallAxios () {
@@ -55,29 +56,27 @@ export default {
         })
         .catch((error) => {
           console.log(error);
-        });
-        
-    },
-    CallAxiosTv () {
-      axios.get(this.queryApiDeckTv, {
-        params: {
+        })
+         axios.get(this.queryApiDeckTv, {
+          params: {
           query: this.textSearch
         }
       })
       .then(results => {
         console.log(results);
-        this.cards = results.data.results
+        this.tvcards = results.data.results
       })
       .catch((error) => {
           console.log(error);
         });
-    }
+    },
    }
 };
 </script>
 
 <style lang="scss">
 @import "~bootstrap/scss/bootstrap";
+@import '~mdb-ui-kit/css/mdb.min.css';
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
