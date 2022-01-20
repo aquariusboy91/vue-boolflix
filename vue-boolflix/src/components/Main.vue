@@ -16,7 +16,7 @@
         :lingua="card.original_language"
         :voto="card.vote_average"
         :nometv="card.name"
-        :nometvoriginale="card.originale_name"
+        :nometvoriginale="card.original_name"
       />
   </div>
   </div>
