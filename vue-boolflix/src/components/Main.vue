@@ -21,7 +21,8 @@
         :lingua ="cardtv.original_language"
         :voto="cardtv.vote_average"
         :nometv="cardtv.name"
-        :nometvoriginale="cardtv.original_name"/>
+        :nometvoriginale="cardtv.original_name"
+        :img="cardtv.poster_path"/>
          </div>
   </div>
 </template>
@@ -46,13 +47,7 @@ export default {
     components: {
     Filmcards,
     TvSeriescards
-},
-  data() {
-    return {
-      apimg : 'https://image.tmdb.org/t/p/'
-    }
-   
-  }
+}
 
     }
   
