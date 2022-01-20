@@ -20,7 +20,7 @@
       />
       <TvSeriescards 
         v-for="(cardtv, index) in tvcards"
-        :key="index"
+        :key=" 'TV' + index"
         :lingua ="cardtv.original_language"
         :voto="cardtv.vote_average"
         :nometv="cardtv.name"
