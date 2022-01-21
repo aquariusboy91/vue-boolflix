@@ -6,7 +6,8 @@
         <h2>{{title}} {{nometv}}</h2>
         <h3>{{originaltitle}} {{nometvoriginale}}</h3>
         <span><i :class="(lingua == 'en') ? 'flag flag-united-states' : 'flag flag-' + lingua"></i></span>
-        <span>{{Math.floor(voto / 2)}} <font-awesome-icon :icon="['fas', 'faStar']" /></span>
+        <span>{{Math.floor(voto / 2)}} <font-awesome-icon icon="star"
+        /></span>
     </div>
 </template>
 
@@ -14,6 +15,7 @@
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-free/css/all.css';
 library.add(faStar)
 export default {
     name: 'Filmcards',
@@ -33,7 +35,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '@fortawesome/fontawesome-free';
 
 
 
