@@ -10,9 +10,8 @@
         :originaltitle="card.original_title"
         :lingua="card.original_language"
         :voto="card.vote_average"
-        :nometv="card.name"
-        :nometvoriginale="card.original_name"
         :img="card.poster_path"
+        :alt="card.title"
       />
 
       <TvSeriescards 
@@ -22,7 +21,8 @@
         :voto="cardtv.vote_average"
         :nometv="cardtv.name"
         :nometvoriginale="cardtv.original_name"
-        :img="cardtv.poster_path"
+        :img="cardtv.poster_path" 
+        :alt="cardtv.name"
         />
          </div>
   </div>
@@ -47,7 +47,7 @@ export default {
     },
     components: {
     Filmcards,
-    TvSeriescards
+    TvSeriescards,
 }
 
     }
