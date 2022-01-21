@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
-
-       <div class="row">
+  <div class="container-fluid bg-movie">
+        <h2>Movies</h2>
+       <div class="row row-cols-6 ">
 
         <Filmcards
         v-for="(card, index) in cards"
@@ -13,18 +13,20 @@
         :img="card.poster_path"
         :alt="card.title"
       />
-
-      <TvSeriescards 
-        v-for="(cardtv, index) in tvcards"
-        :key=" 'TV' + index"
-        :lingua ="cardtv.original_language"
-        :voto="cardtv.vote_average"
-        :nometv="cardtv.name"
-        :nometvoriginale="cardtv.original_name"
-        :img="cardtv.poster_path" 
-        :alt="cardtv.name"
-        />
-         </div>
+      </div>
+       <h2>Tv Series</h2>
+       <div class="row row-cols-6 ">
+        <TvSeriescards 
+          v-for="(cardtv, index) in tvcards"
+          :key=" 'TV' + index"
+          :lingua ="cardtv.original_language"
+          :voto="cardtv.vote_average"
+          :nometv="cardtv.name"
+          :nometvoriginale="cardtv.original_name"
+          :img="cardtv.poster_path" 
+          :alt="cardtv.name"
+          />
+        </div>
   </div>
 </template>
 
@@ -55,6 +57,12 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss" scoped>
+    h2 {
+      color: white;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+  
 
 </style>
