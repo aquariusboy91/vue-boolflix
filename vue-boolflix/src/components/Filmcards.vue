@@ -6,14 +6,18 @@
         <h2>{{title}} {{nometv}}</h2>
         <h3>{{originaltitle}} {{nometvoriginale}}</h3>
         <span><i :class="(lingua == 'en') ? 'flag flag-united-states' : 'flag flag-' + lingua"></i></span>
-        <span>{{Math.floor(voto / 2)}} <font-awesome-icon icon="star"
-        /></span>
+        <span>{{Math.floor(voto / 2)}}</span>
+        <!-- v-for in range da n a 5 con ternario per aggiunta delle classi -->
+        <i
+            v-for="n in 5"
+            :key="n"
+            :class="(n <= Math.floor(voto / 2)) ? 'fas fa-star' : 'far fa-star'"
+          />
     </div>
 </template>
 
 <script>
 import { faStar } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-free/css/all.css';
 library.add(faStar)
@@ -30,8 +34,12 @@ export default {
     'alt'
     ],
     components: {
-    FontAwesomeIcon,  // inseriamo qui il componente
   },
+  data() {
+      return {
+          stars : []
+      }
+  }
 }
 </script>
 
