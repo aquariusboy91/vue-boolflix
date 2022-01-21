@@ -5,7 +5,7 @@
         <h2>{{nometv}}</h2>
         <h3>{{nometvoriginale}}</h3>
         <span><i :class="(lingua == 'en') ? 'flag flag-united-states' : 'flag flag-' + lingua"></i></span>
-        <span>{{voto}}</span>
+        <span>{{Math.floor(voto / 2)}}</span>
     </div>
 </template>
 
