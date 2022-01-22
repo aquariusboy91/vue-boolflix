@@ -40,7 +40,7 @@ export default {
 <style lang="scss" scoped>
   .logo {
     width: 120px;
-    height: 50px;
+    height: 60px;
     
   }
   .search {

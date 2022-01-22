@@ -12,6 +12,7 @@
         :voto="card.vote_average"
         :img="card.poster_path"
         :alt="card.title"
+        :descr="card.overview"
       />
       </div>
        <h2>Tv Series</h2>

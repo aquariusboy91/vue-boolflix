@@ -1,9 +1,10 @@
 <template>
     <div class="card-cont bg-movie">
-        <div v-if="img == null"> {{alt}} </div>
+        <div class="alt" v-if="img == null"> {{alt}} </div>
         <img v-else :src="'https://image.tmdb.org/t/p/w185' + img" alt="" v-on:click="info()" class="img-movie">
         <div :class= "{active: isactive}" class="info-card">
-            <h2>{{title}}</h2>
+            <h3>{{title}}</h3>
+            <p>{{descr}}</p>
             <!-- <h3>{{originaltitle}} {{nometvoriginale}}</h3> -->
             <span class="flag"><i :class="(lingua == 'en') ? 'flag flag-united-states' : 'flag flag-' + lingua"></i></span>
             <!-- <span>{{Math.floor(voto / 2)}}</span> -->
@@ -32,10 +33,9 @@ export default {
     'nometv',
     'nometvoriginale',
     'img',
-    'alt'
+    'alt',
+    'descr'
     ],
-    components: {
-  },
   data() {
       return {
           isactive: false
@@ -77,12 +77,16 @@ export default {
         
     }
 
-    .flag {
-        padding-right: 0.5em;
-    }
 
     .fas.fa-star {
         color: yellow
+    }
+    .alt {
+        color:white;
+    }
+    p {
+        color: white;
+        font-size: 10px;
     }
 
 </style>
